@@ -12,9 +12,9 @@ const PROJECTS = [
     tag: "Personal Project",
     summary:
       "Multi-user poker session tracker in Python with a separation-of-concerns " +
-      "architecture across five modules. Normalized SQLite schema with foreign-key " +
-      "constraints and cascade deletes; bcrypt-salted login; a statistics engine " +
-      "computing profit, hourly winrate, and BB/hour filtered by game type; and an " +
+      "architecture across five files. Normalized SQLite schema with foreign-key " +
+      "constraints and cascade deletes. Uses bcrypt-salted login and is a statistics engine " +
+      "computing profit, hourly winrate, and BB/hour filtered by game type. Currently exists as an " +
       "installable PWA web interface with a JSON API.",
     stack: ["Python", "SQLite", "bcrypt", "JSON API", "PWA"],
     links: [
