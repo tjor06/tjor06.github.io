@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sandbox Encryptor</title>
+<style>
+  body { font-family: system-ui, sans-serif; background: #0a0d13; color: #e8ecf4; max-width: 780px; margin: 3rem auto; padding: 0 1rem; line-height: 1.5; }
+  h1 { font-size: 1.4rem; } p { color: #9aa5bd; }
+  textarea, input { width: 100%; box-sizing: border-box; background: #131826; color: #e8ecf4; border: 1px solid #2a3350; border-radius: 8px; padding: 0.6rem; font-family: ui-monospace, monospace; font-size: 0.85rem; margin: 0.3rem 0 1rem; }
+  textarea { min-height: 220px; }
+  button { background: #64f0d2; color: #08281f; border: none; border-radius: 8px; padding: 0.7rem 1.4rem; font-weight: 700; cursor: pointer; font-size: 1rem; }
+  label { font-weight: 600; font-size: 0.9rem; }
+  #out { margin-top: 1rem; }
+  .row { display: flex; gap: 1rem; } .row > div { flex: 1; }
+</style>
+</head>
+<body>
+<h1>🔐 Sandbox Encryptor</h1>
+<p>Open this file locally in your browser. Paste the Sandbox HTML below, set your username and
+password, click Encrypt, then replace the contents of <code>js/sandbox-data.js</code> with the
+output and commit. Changing the credentials here <em>is</em> how you change the Sandbox login.
+Never commit the plaintext HTML.</p>
+
+<label>Sandbox HTML (plaintext)</label>
+<textarea id="plain">&lt;div class="sb-card"&gt;
+  &lt;h3&gt;My secret project&lt;/h3&gt;
+  &lt;div class="sb-meta"&gt;Status&lt;/div&gt;
+  &lt;p&gt;Notes…&lt;/p&gt;
+&lt;/div&gt;</textarea>
+
+<div class="row">
+  <div><label>Username</label><input id="user" value="tomas"></div>
+  <div><label>Password</label><input id="pass" type="text" placeholder="new password"></div>
+</div>
+
+<button id="go">Encrypt → sandbox-data.js</button>
+<label id="out-label" for="out" hidden>Paste this into <code>js/sandbox-data.js</code>:</label>
+<textarea id="out" readonly hidden></textarea>
+
+<script>
+document.getElementById("go").addEventListener("click", async () => {
+  const html = document.getElementById("plain").value;
+  const user = document.getElementById("user").value.trim().toLowerCase();
+  const pass = document.getElementById("pass").value;
+  if (!pass) { alert("Set a password."); return; }
+  const enc = new TextEncoder();
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const material = await crypto.subtle.importKey("raw", enc.encode(user + ":" + pass), "PBKDF2", false, ["deriveKey"]);
+  const key = await crypto.subtle.deriveKey(
+    { name: "PBKDF2", salt, iterations: 310000, hash: "SHA-256" },
+    material, { name: "AES-GCM", length: 256 }, false, ["encrypt"]);
+  const ct = new Uint8Array(await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, enc.encode(html)));
+  const b64 = (u) => btoa(String.fromCharCode(...u));
+  // large ct: chunk the base64 conversion to avoid call-stack limits
+  const b64big = (u) => { let s = ""; for (let i = 0; i < u.length; i += 0x8000) s += String.fromCharCode.apply(null, u.subarray(i, i + 0x8000)); return btoa(s); };
+  const out = `/* Encrypted Sandbox payload (AES-256-GCM, PBKDF2-SHA256 310k iterations).
+   Regenerate with tools/encrypt.html — do NOT commit the plaintext. */
+const SANDBOX_VAULT = {
+  salt: "${b64(salt)}",
+  iv: "${b64(iv)}",
+  ct: "${b64big(ct)}"
+};
+`;
+  const ta = document.getElementById("out");
+  ta.value = out; ta.hidden = false;
+  document.getElementById("out-label").hidden = false;
+  ta.select();
+});
+</script>
+</body>
+</html>

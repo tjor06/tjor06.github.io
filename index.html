@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tomas Jonsson — Physics & Statistics at UC Berkeley. Projects, work in progress, and contact.">
+<title>Tomas Jonsson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-name" href="#home">TJ<span class="accent">.</span></a>
+  <button id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <ul id="nav-links">
+    <li><a href="#home" class="nav-link">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#projects" class="nav-link">Projects</a></li>
+    <li><a href="#inworks" class="nav-link">In the Works</a></li>
+    <li><a href="#sandbox" class="nav-link nav-sandbox">Sandbox <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></a></li>
+  </ul>
+</nav>
+
+<!-- ======================= HOME ======================= -->
+<header id="home" class="section hero">
+  <canvas id="bg3d" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <p class="hero-kicker reveal">Berkeley, California</p>
+    <h1 class="reveal">Tomas<br>Jonsson<span class="accent">.</span></h1>
+    <p class="hero-sub reveal">B.A. Physics &amp; Statistics minor at UC Berkeley — building at the
+    intersection of <em>physics, data, and AI infrastructure</em>.</p>
+    <div class="contact-row reveal">
+      <a class="contact-chip" href="mailto:jonssontorri@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        jonssontorri@gmail.com
+      </a>
+      <a class="contact-chip" href="https://www.linkedin.com/in/tomas-jonsson-836541285/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.1h4.56V23H.22zM8.34 8.1h4.37v2.03h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v8.24h-4.55v-7.3c0-1.74-.03-3.98-2.43-3.98-2.43 0-2.8 1.9-2.8 3.86V23H8.34z"/></svg>
+        LinkedIn
+      </a>
+      <a class="contact-chip" href="https://github.com/tjor06" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+        github.com/tjor06
+      </a>
+    </div>
+    <p class="hero-hint reveal" id="drag-hint">drag the field &middot; scroll to explore</p>
+  </div>
+</header>
+
+<main>
+<!-- ======================= ABOUT ======================= -->
+<section id="about" class="section">
+  <div class="section-inner">
+    <h2 class="reveal"><span class="sec-num">01</span> About</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm an undergraduate at <strong>UC Berkeley</strong> (Class of 2028) studying
+        <strong>Physics</strong> with a minor in <strong>Statistics</strong>, raised in New York City
+        with Icelandic roots. My coursework runs from multivariable calculus, linear algebra, and
+        differential equations through mechanics, special relativity, electricity &amp; magnetism,
+        and introductory quantum mechanics and thermodynamics.</p>
+        <p>Professionally, I work where physics-style rigor meets software. As an
+        <strong>AI Infrastructure Engineering Intern with the United Nations</strong> (contractor via
+        AI Learning &amp; Digital Safety), I architected and shipped a Model Context Protocol (MCP)
+        server — hexagonal architecture, configuration-driven composition, per-user session
+        isolation, and automatic credential redaction — and authored its full technical
+        documentation. Before that I served as <strong>President of Phi Kappa Psi</strong> at
+        Berkeley, managing a $120,000+ annual budget, executing a debt-turnaround plan that
+        eliminated $16,000 in debt, and raising $10,000 for charity.</p>
+        <p>Outside of class you'll find me at the poker table (analytically), at the piano
+        (13&nbsp;years), or reading in English, French, or Icelandic.</p>
+      </div>
+      <aside class="about-facts reveal">
+        <div class="fact"><h3>Education</h3><p>UC Berkeley — B.A. Physics, Statistics minor<br><span class="dim">Aug 2024 – May 2028</span></p></div>
+        <div class="fact"><h3>Currently</h3><p>AI Infrastructure Engineering Intern,<br>United Nations (AI Learning &amp; Digital Safety)</p></div>
+        <div class="fact"><h3>Languages</h3><p>English &amp; Icelandic (native), French (fluent), Mandarin (basic)</p></div>
+        <div class="fact"><h3>Toolbox</h3><div class="chips">
+          <span>Python</span><span>SQL</span><span>MATLAB</span><span>LaTeX</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>HTML/CSS</span><span>Git</span><span>Claude Code</span><span>MCP</span>
+        </div></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROJECTS ======================= -->
+<section id="projects" class="section">
+  <div class="section-inner">
+    <h2 class="reveal"><span class="sec-num">02</span> Projects</h2>
+    <p class="section-lede reveal">Selected work — completed and shipped. Links live in
+    <code>js/data.js</code>, so adding one is a one-line edit.</p>
+    <div id="project-grid" class="card-grid"></div>
+  </div>
+</section>
+
+<!-- ======================= IN THE WORKS ======================= -->
+<section id="inworks" class="section">
+  <div class="section-inner">
+    <h2 class="reveal"><span class="sec-num">03</span> In the Works</h2>
+    <p class="section-lede reveal">Active builds — not finished, moving weekly. Deeper notes and
+    private links live in the <a href="#sandbox">Sandbox</a>.</p>
+    <div id="inworks-list" class="works-list"></div>
+  </div>
+</section>
+
+<!-- ======================= SANDBOX ======================= -->
+<section id="sandbox" class="section">
+  <div class="section-inner">
+    <h2 class="reveal"><span class="sec-num">04</span> Sandbox</h2>
+
+    <div id="sandbox-locked" class="sandbox-gate reveal">
+      <div class="gate-icon">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <p class="gate-text">Private workbench — unreleased projects, drafts, and notes.
+      Contents are AES-encrypted; nothing here is readable without the key.</p>
+      <form id="sandbox-form" autocomplete="off">
+        <input id="sb-user" type="text" placeholder="username" autocomplete="username" required>
+        <input id="sb-pass" type="password" placeholder="password" autocomplete="current-password" required>
+        <button type="submit">Unlock</button>
+      </form>
+      <p id="sandbox-error" class="gate-error" hidden>Decryption failed — wrong credentials.</p>
+    </div>
+
+    <div id="sandbox-open" hidden>
+      <div class="sandbox-bar">
+        <span class="dot"></span> Unlocked
+        <button id="sandbox-lock-btn" type="button">Lock</button>
+      </div>
+      <div id="sandbox-content" class="sandbox-content"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Tomas Jonsson &middot; Berkeley, CA</p>
+  <p class="dim">Built with vanilla JS + Three.js &middot; <a href="https://github.com/tjor06/TruePoker" target="_blank" rel="noopener">source</a></p>
+</footer>
+
+<script src="js/vendor/three.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/sandbox-data.js"></script>
+<script src="js/three-bg.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
