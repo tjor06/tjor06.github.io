@@ -52,17 +52,16 @@ const PROJECTS = [
     ]
   },
   {
-    title: "AM Radio Receiver & Amplifier",
-    period: "Sep 2025 – Present",
-    tag: "UC Berkeley Experimental Physics Lab",
+    title: "Apantle Handwritten Notes to LaTeX document transcriber",
+    period: "Jul 2026 – Present",
+    tag: "Personal Project",
     summary:
-      "Hand-built AM radio receiver and amplifiers with modified cutoff frequencies " +
-      "of 350–500 Hz around an LM386 chip. Tested optimal exposure length of " +
-      "aluminum inductor coils and varied circuit construction for an 8V " +
-      "battery-powered receiver.",
-    stack: ["Analog circuits", "LM386", "RF", "Lab instrumentation"],
+      "Building an application that optimizes cost and contains error flagging for handwritten notes to LaTeX PDF transcription. " +
+      "build using Claude API, ChatGPT, and OCR techniques to streamline and speed up transcription process. "
+      
+    stack: ["Python", "C++", "SQL", "Computer Vision"],
     links: [
-      { label: "Lab notes", url: "" }
+      { label: "N/A currently", url: "" }
     ]
   }
 ];
